@@ -25,7 +25,7 @@ function App() {
     map.fitBounds(bounds);
 
     // Example marker
-    const marker = L.marker([500, 750]).addTo(map);
+    const marker = L.marker([400, 1030]).addTo(map);
 
     // Example WebSocket update
     const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
