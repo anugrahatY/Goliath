@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import L from "leaflet";
 import campusMap from "./maproom.png";
 import "./App.css";
+// import Navbar from "./Navbar";
+import './index.css'
+import Stats from "./Stats";
 
 function App() {
   useEffect(() => {
@@ -46,7 +49,13 @@ function App() {
 
   }, []);
 
-  return <div id="map" className="map-container" />;
+  return (
+    <>
+    {/* <Navbar /> */}
+    <div id="map" className="map-container" />
+    <Stats />
+    </>
+    );
 }
 
 export default App;
