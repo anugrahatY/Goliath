@@ -1,14 +1,23 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  justify-content: center;
+  /* centers whole block */
+  margin-top: 20px;
+}
+
+.dashboard {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 .map-container {
-  height: 400px;
-  width: 600px;
-  margin: 20px auto;
+  height: 100%;
+  width: 100%;
   border-radius: 9px;
   overflow: hidden;
   border: solid;

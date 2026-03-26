@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import L from "leaflet";
-import campusMap from "./maproom.png";
+import campusMap from "./Picture1.png";
 import "./App.css";
-// import Navbar from "./Navbar";
-import './index.css'
+import { Navbar,Drawer } from "./Navbar";
+import "./index.css";
 import Stats from "./Stats";
+import Footer from "./Footer";
 
 function App() {
+  const [currentLocation, setCurrentLocation] = useState({ y: 400, x: 1030 });
+
   useEffect(() => {
 
     // Create map with simple coordinate system
@@ -28,18 +31,33 @@ function App() {
     map.fitBounds(bounds);
 
     // Example marker
-    const marker = L.marker([400, 1030]).addTo(map);
+    const marker = L.marker([currentLocation.y, currentLocation.x]).addTo(map);
 
     // Example WebSocket update
     const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
-    const ws = new WebSocket("ws://localhost:3262/ws");
+    const wsUrl =
+      import.meta.env.VITE_WS_URL ||
+      `${wsProtocol}://${window.location.hostname}:3262/ws`;
+    const ws = new WebSocket(wsUrl);
 
 
     ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
+      let data;
+      try {
+        data = JSON.parse(event.data);
+      } catch {
+        return;
+      }
 
-      // Now data.lat and data.lng must be pixel coordinates
-      marker.setLatLng([data.lat, data.lng]);
+      const nextY = Number(data.lat ?? data.y);
+      const nextX = Number(data.lng ?? data.x);
+
+      if (!Number.isFinite(nextY) || !Number.isFinite(nextX)) {
+        return;
+      }
+
+      marker.setLatLng([nextY, nextX]);
+      setCurrentLocation({ y: nextY, x: nextX });
     };
 
     return () => {
@@ -51,11 +69,12 @@ function App() {
 
   return (
     <>
-    {/* <Navbar /> */}
-    <div id="map" className="map-container" />
-    <Stats />
+    <Drawer currentLocation={currentLocation}>
+      <div id="map" className="map-container"></div>
+    </Drawer >  
+    <Footer />
     </>
-    );
+  );
 }
 
 export default App;
