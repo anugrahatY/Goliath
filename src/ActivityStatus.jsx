@@ -12,7 +12,7 @@ function ActivityDrawer() {
   const status = "active";
 
   return (
-    <div className="collapse bg-base-150">
+    <div className="collapse bg-base-110">
 
       {/* Hidden checkbox (controls collapse) */}
       <input type="checkbox" className="peer" />

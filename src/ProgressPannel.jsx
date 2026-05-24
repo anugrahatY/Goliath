@@ -18,6 +18,7 @@ function ProgressPanel() {
           <span>65%</span>
         </div>
         <progress className="progress progress-warning w-50" value="65" max="100"></progress>
+        
       </div>
 
       {/* Temperature */}
@@ -26,7 +27,7 @@ function ProgressPanel() {
           <span>Temperature</span>
           <span>36°C</span>
         </div>
-        <progress className="progress progress-info w-50" value="36" max="100"></progress>
+        <progress className="progress progress-error w-50" value="36" max="100"></progress>
       </div>
 
     </div>
