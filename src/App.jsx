@@ -294,7 +294,7 @@ function App() {
 
     // LIVE TRACKING WEBSOCKET
 
-    const ws = new WebSocket("ws://172.16.216.124:3262");
+    const ws = new WebSocket("ws://10.106.7.236:3262");
 
     ws.onmessage = (event) => {
       try {
