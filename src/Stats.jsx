@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DropStat from "./dropdown";
 import ActivityDrawer from "./ActivityStatus";
+
+
 function Stats({ currentLocation }) {
   const landmarks = [
     { name: "C201", x: 810, y: 715 },

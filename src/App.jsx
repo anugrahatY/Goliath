@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
-import campusMap from "./cbi2.png";
+import campusMap from "/cbi2.png";
 import "./App.css";
 import { Drawer } from "./Navbar";
 import "./index.css";

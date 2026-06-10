@@ -1,4 +1,3 @@
-import sid from "./sid.png"
 import Stats from "./Stats";
 function Navbar() {
   return (
@@ -31,7 +30,7 @@ function Navbar() {
         <div className="w-10 rounded-full">
           <img
             alt="Tailwind CSS Navbar component"
-            src={sid} />
+            src="sid.png" />
         </div>
       </div>
       <ul
