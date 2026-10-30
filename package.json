@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.2.0",
     "cors": "^2.8.6",
     "daisyui": "^5.5.18",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "leaflet": "^1.9.4",
     "react": "^19.2.0",
